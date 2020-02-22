@@ -42,7 +42,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "idle"
-frame = 7
+frame = 10
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
