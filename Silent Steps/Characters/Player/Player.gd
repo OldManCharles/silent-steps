@@ -3,7 +3,11 @@ extends "res://Characters/TemplateCharacter.gd"
 var motion = Vector2()
 
 func _physics_process(delta: float) -> void:
+	handle_input()
+
+func handle_input():
 	move()
+	handle_attack()
 	look_at_mouse()
 
 func handle_movement_input() -> void:
@@ -29,3 +33,12 @@ func look_at_mouse():
 func move():
 	handle_movement_input()
 	motion = move_and_slide(motion)
+
+func handle_attack():
+	if Input.is_action_just_pressed("attack"):
+		$AnimatedSprite.play("slash")
+
+
+func _on_AnimatedSprite_animation_finished() -> void:
+	if $AnimatedSprite.get_animation() == "slash":
+		$AnimatedSprite.play("run")
